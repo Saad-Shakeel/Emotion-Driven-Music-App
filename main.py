@@ -6,7 +6,7 @@ import numpy as np
 import streamlit as st
 from keras.models import model_from_json
 import os
-import Youtube
+import yt
 
 @st.cache_resource
 def load_model():
@@ -38,8 +38,35 @@ def main():
         initial_sidebar_state="expanded"
     )
 
-    st.title("Welcome to the Emotion-Driven Music Recommendation System!")
-    st.subheader("Emotion Recognition with AI-Powered Song Suggestions and YouTube Downloading")
+    st.title("🎵 EMOBEAT - Emotion-Driven Music App")
+    
+    st.write("""
+    **EMOBEAT** is an AI-powered music recommendation system that detects your emotions through facial recognition 
+    and suggests personalized music based on your current mood. The application uses deep learning to analyze 
+    your facial expressions and provides curated song recommendations from YouTube that match your emotional state.
+    """)
+    
+    with st.expander("📖 How to Use This App"):
+        st.write("""
+        **Step 1: Emotion Detection**
+        - Click "Start Webcam" to activate your camera
+        - Position your face in front of the camera
+        - The AI will detect your current emotion (happy, sad, angry, fear, disgust, neutral, surprise)
+        - Click "Detect Mood" when you're ready to proceed
+        
+        **Step 2: Music Discovery**
+        - Select a mood filter that matches your detected emotion
+        - Choose your preferred music genre
+        - Click "Find Music" to search for songs
+        
+        **Step 3: Download & Play**
+        - Browse the recommended songs list
+        - Click "Download" on any song you like
+        - Songs will be saved to your local playlist
+        - Use the music player to listen to your downloaded tracks
+        
+        **Note:** Make sure you have a stable internet connection for downloading songs from YouTube.
+        """)
 
     # Load the model
     model = load_model()
@@ -59,6 +86,8 @@ def main():
     haar_file = cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
     face_cascade = cv2.CascadeClassifier(haar_file)
 
+    st.divider()
+    
     # Initialize session state for storing the last detected emotion
     if 'last_emotion' not in st.session_state:
         st.session_state.last_emotion = "No emotion detected"
@@ -116,7 +145,7 @@ def main():
 
     # After stopping, call the YouTube function with the last detected emotion
     if st.session_state.last_emotion != "No emotion detected":
-        Youtube.YoutubeMain(st.session_state.last_emotion)
+        yt.yt_main(st.session_state.last_emotion)
 
 if __name__ == "__main__":
     main()

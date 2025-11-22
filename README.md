@@ -1,15 +1,106 @@
-Emotion-Driven-Music-App is an AI-powered application designed to detect real-time emotions through facial recognition and provide personalized music recommendations based on the user's mood. The project integrates with the YouTube API to fetch relevant songs and allows users to download the recommended tracks directly from YouTube.
+# 🎵 EMOBEAT - Emotion-Driven Music App
 
-The core functionality of MoodTunes revolves around using machine learning models to identify emotions such as happiness, sadness, anger, surprise, and neutrality. Once the emotion is detected, the app queries YouTube for suitable music that matches the emotional tone, ensuring a personalized and engaging experience for the user.
+An AI-powered music recommendation system that detects real-time emotions through facial recognition and provides personalized music recommendations based on your current mood.
 
-Key Features:
-Real-Time Emotion Detection: Uses a webcam feed to analyze facial expressions and detect emotions using AI-based models.
-Music Recommendation: Suggests songs aligned with the detected mood, pulling music data from YouTube.
-Song Download: Allows users to download recommended songs using the YouTube API and Pytube.
-Streamlit Interface: Built with Streamlit, offering an intuitive and responsive web app interface with options to view, expand, and download music.
-Technologies Used:
-Python: The backbone of the application.
-OpenCV: For capturing real-time webcam input and facial recognition.
-TensorFlow/Keras: For the deep learning emotion detection model.
-YouTube API & Pytube: To search, fetch, and download songs.
-Streamlit: For creating a clean, easy-to-use UI.
+## 🎬 Demo
+
+![EMOBEAT Demo](EMOBEAT-DEMO.gif)
+
+*Experience the full workflow: emotion detection → music discovery → playlist creation*
+
+## 🌟 Features
+
+- **Real-Time Emotion Detection**: Uses webcam feed to analyze facial expressions and detect emotions using deep learning models
+- **Intelligent Music Recommendation**: Suggests songs aligned with detected mood, pulling music data from YouTube
+- **Song Download & Playback**: Download recommended songs and play them with built-in music player
+- **Professional Interface**: Clean, intuitive Streamlit-based web application
+- **Multiple Emotion Support**: Detects 7 emotions - happy, sad, angry, fear, disgust, neutral, surprise
+
+## 🛠️ Technologies Used
+
+- **Python**: Core programming language
+- **OpenCV**: Real-time webcam input and facial recognition
+- **TensorFlow/Keras**: Deep learning emotion detection model
+- **YouTube API & yt-dlp**: Search, fetch, and download songs from YouTube
+- **Streamlit**: Web application framework for user interface
+- **Google API Client**: YouTube Data API integration
+
+## 📋 Prerequisites
+
+- Python 3.7+
+- Webcam/Camera access
+- Internet connection for YouTube API
+- YouTube Data API key
+
+## 🚀 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/Saad-Shakeel/Emotion-Driven-Music-App.git
+   cd Emotion-Driven-Music-App
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pip install uv
+   uv sync
+   ```
+
+3. **Install FFmpeg**
+   - Download FFmpeg from: https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+   - Extract the zip file
+   - Add the `bin` folder path to your system environment variables
+
+4. **Set up YouTube API**
+   - Get YouTube Data API key from [Google Cloud Console](https://console.cloud.google.com/)
+   - Create `.env` file in project root
+   - Add your API key:
+     ```
+     YOUTUBE_API_KEY=your_api_key_here
+     ```
+
+5. **Download emotion detection model**
+   - Ensure `emotionDetection.json` and `emotionDetection.h5` files are in the project directory
+
+## 🎯 Usage
+
+1. **Run the application**
+   ```bash
+   streamlit run main.py
+   ```
+
+2. **Follow the app workflow**
+   - **Step 1**: Click "Start Webcam" to activate emotion detection
+   - **Step 2**: Position your face in front of camera
+   - **Step 3**: Click "Detect Mood" when ready
+   - **Step 4**: Select mood filter and music genre
+   - **Step 5**: Browse and download recommended songs
+   - **Step 6**: Enjoy your personalized playlist
+
+## 🎵 Music Genres
+
+- Pop
+- Rock
+- Hip-Hop/Rap
+- Electronic
+- Classical
+- Bollywood
+- Punjabi
+- Sufi
+
+## ⚙️ Configuration
+
+### Environment Variables
+Create a `.env` file with:
+```
+YOUTUBE_API_KEY=your_youtube_api_key
+```
+
+### Model Files
+Ensure these files are present:
+- `emotionDetection.json` - Model architecture
+- `emotionDetection.h5` - Trained weights
+
+---
+
+⭐ **Star this repository if you found it helpful!**
