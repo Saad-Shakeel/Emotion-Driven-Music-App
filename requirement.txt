@@ -1,0 +1,11 @@
+tensorflow
+keras
+pandas
+numpy
+notebook
+tqdm
+opencv-contrib-python
+python-dotenv
+streamlit
+yt_dlp
+google-api-python-client
